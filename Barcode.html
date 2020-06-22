@@ -5,7 +5,7 @@
     <body onLoad='setBarcodeField()'>
 
         <h1>Reader Demo</h1>
-        <h2>v1.9</h2>
+        <h2>v1.10</h2>
         <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
         <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
         <label for="barcodeValue">Barcode Value:</label>
@@ -21,9 +21,9 @@
     </body>
 
     <script type='text/javascript'>
-        var qString = location.search;
 
         function setBarcodeField()  {
+            var qString = location.search;
             var barcodeValue = "barcodeValue=";
             var barcodeType = "barcodeType=";
 
