@@ -3,22 +3,29 @@
 
     </head>
     <body onLoad='setBarcodeField()'>
-
-        <h1>Reader Demo</h1>
-        <h2>v1.15</h2>
-        <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
-        <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
-        <label for="barcodeValue">Barcode Value:</label>
-        <input type="text" id="barcodeValue" name="bvalue"><br><br>
+        <div>
+            <img src="grabba_logo.png" alt="Grabba" width="200" height="200">
         
-        <label for="barcodeType">Barcode Type:</label>
-        <input type="text" id="barcodeType" name="btype"><br><br>
-        
-        <button onclick="window.location.href='reader://barcode?redirecturl=https://testinggrabba.github.io/Barcode.html'">
-            >>> Press me to get Barcode! <<<
-          </button>
+            <h1>Grabba Reader Demo</h1>
+            <h2>v1.16</h2>
 
+            <label for="barcodeValue">Barcode Value:</label>
+            <input type="text" id="barcodeValue" name="bvalue"><br><br>
+            
+            <label for="barcodeType">Barcode Type:</label>
+            <input type="text" id="barcodeType" name="btype"><br><br>
+
+            <button onclick="window.location.href='reader://barcode?redirecturl=https://testinggrabba.github.io/Barcode.html'">
+                >>> Press me to get Barcode! <<<
+            </button>
+        </div>
+        
     </body>
+
+    <style>
+        body {background-color: lightgray;}
+        div {text-align: center;}
+    </style>
 
     <script type='text/javascript'>
 
