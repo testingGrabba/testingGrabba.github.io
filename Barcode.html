@@ -5,7 +5,7 @@
     <body onLoad='setBarcodeField()'>
 
         <h1>Reader Demo</h1>
-        <h2>v1.10</h2>
+        <h2>v1.11</h2>
         <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
         <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
         <label for="barcodeValue">Barcode Value:</label>
@@ -24,23 +24,23 @@
 
         function setBarcodeField()  {
             var qString = location.search;
-            var barcodeValue = "barcodeValue=";
-            var barcodeType = "barcodeType=";
+            var barcodeValue = "barcodeValue";
+            var barcodeType = "barcodeType";
 
             // Extract -- Barcode
             if (qString.indexOf(barcodeValue) != -1) {
-                var barval = qString.substring(qString.indexOf(barcodeValue) + barcodeValue.length + 1, qString.length);
+                var barval = getParameter(barcodeValue, qString);
                 document.getElementById("barcodeValue").value = barval.toString();
             }
 
             // Extract -- BarcodeType
             if (qString.indexOf(barcodeType) != -1) {
-                var bartype = getParameter(barcodeType);
+                var bartype = getParameter(barcodeType, qString);
                 document.getElementById("barcodeType").value = bartype.toString();
             }
         }
 
-        function getParameter(key, url) {
+        function getParameterA(key, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
             var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -48,8 +48,10 @@
             if (!results) return null;
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
 
-            
+        function getParameter(key, url) {
+            return url.substring(url.indexOf(barcodeValue) + barcodeValue.length + 1, url.length)
         }
     </script>
 
