@@ -5,7 +5,7 @@
     <body onLoad='setBarcodeField()'>
 
         <h1>Reader Demo</h1>
-        <h2>v1.14</h2>
+        <h2>v1.15</h2>
         <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
         <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
         <label for="barcodeValue">Barcode Value:</label>
@@ -25,23 +25,21 @@
         function setBarcodeField()  {
             var qString = location.search;
             var keyValues = getAllParameters(qString);
+            
+            // Debug show query string
+            console.log(keyValues);
 
             var barcodeValue = "barcodeValue";
             var barcodeType = "barcodeType";
 
-            // Console
-            console.log(keyValues);
-
             // Extract -- Barcode
             if (qString.indexOf(barcodeValue) != -1) {
-                var barval = keyValues[barcodeValue];
-                document.getElementById("barcodeValue").value = barval.toString();
+                document.getElementById("barcodeValue").value = keyValues[barcodeValue];
             }
 
             // Extract -- BarcodeType
             if (qString.indexOf(barcodeType) != -1) {
-                var bartype = keyValues[barcodeType];
-                document.getElementById("barcodeType").value = bartype.toString();
+                document.getElementById("barcodeType").value = keyValues[barcodeType];
             }
         }
 
@@ -50,14 +48,14 @@
             var dict = {};
             
             for (i = 0; i < sections.length ; i++) {
-                var cSection = sections[i];
-                var param = cSection.split("=");
+                var key = sections[i].split("=")[0];
+                var value = sections[i].split("=")[1];
 
                 // Trim strings
-                if (param[0].substring(0,1) == "?") {
-                    dict[param[0].substring(1, param[0].length)] = param[1];
+                if (key.substring(0,1) == "?") {
+                    dict[key.substring(1, key.length)] = value;
                 } else {
-                    dict[param[0]] = param[1];
+                    dict[key] = value;
                 }
             }
 
