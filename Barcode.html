@@ -1,0 +1,43 @@
+<html>
+    <head>
+
+    </head>
+    <body onLoad='setBarcodeField()'>
+
+        <h1>Reader Demo</h1>
+        <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
+        <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
+        <label for="barcodeValue">Barcode Value:</label>
+        <input type="text" id="barcodeValue" name="bvalue"><br><br>
+        
+        <label for="barcodeType">Barcode Type:</label>
+        <input type="text" id="barcodeType" name="btype"><br><br>
+        
+        <button onclick="window.location.href='reader://barcode?redirecturl=https://www.testingGrabba.github.io'">
+            >>> Press me to get Barcode! <<<
+          </button>
+
+    </body>
+
+    <script type='text/javascript'>
+            function setBarcodeField()  {
+            var qString = location.search;
+
+            var barcodeValue = "displayValue=";
+            var barcodeType = "barcodeType=";
+
+            // Extract -- Barcode
+            if (qString.indexOf(barcodeValue) != -1) {
+                var barval = qString.substring(qString.indexOf(barcodeValue) + barcodeValue.length + 1, qString.length);
+                document.getElementById("barcodeValue").value = barval.toString();
+            }
+
+            // Extract -- BarcodeType
+            if (qString.indexOf(barcodeType) != -1) {
+                var bartype = qString.substring(qString.indexOf(barcodeType) +  barcodeType.length + 1, qString.length);
+                document.getElementById("barcodeType").value = bartype.toString();
+            }
+        }
+    </script>
+
+</html>
