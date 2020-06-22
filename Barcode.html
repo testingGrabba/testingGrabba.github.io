@@ -5,7 +5,7 @@
     <body onLoad='setBarcodeField()'>
 
         <h1>Reader Demo</h1>
-        <h2>v1.7</h2>
+        <h2>v1.8</h2>
         <!-- <a href="market://details?id=com.myapp.package">Click me to market</a>
         <a href="exampleapps://details?id=com.myapp.package">Click me to myApp</a> -->
         <label for="barcodeValue">Barcode Value:</label>
@@ -21,9 +21,9 @@
     </body>
 
     <script type='text/javascript'>
-            function setBarcodeField()  {
-            var qString = location.search;
+        var qString = location.search;
 
+        function setBarcodeField()  {
             var barcodeValue = "barcodeValue=";
             var barcodeType = "barcodeType=";
 
@@ -38,6 +38,18 @@
                 var bartype = qString.substring(qString.indexOf(barcodeType) +  barcodeType.length + 1, qString.length);
                 document.getElementById("barcodeType").value = bartype.toString();
             }
+        }
+
+        function getParameter(key, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+
+            
         }
     </script>
 
