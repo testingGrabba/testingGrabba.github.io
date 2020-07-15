@@ -1,0 +1,52 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <img src="grabba_logo.png" alt="Grabba">
+        
+            <h1>Grabba Reader Demo</h1>
+            <button id="btn_href" onclick="btn_onclick()">
+                Click me with Session
+            </button>
+
+
+        </div>
+        
+    </body>
+
+    <style>
+        body {
+            background-color: lightgray; 
+            }
+        h1 {font-size:8vw};
+        h2 {font-size:6vw};
+        p {font-size: 4vw;}
+        input{font-size: 4vw;}
+        img {width: 50vw;}
+        button {
+            font-size: 5vw; 
+            align-self: center;
+        }
+        div {text-align: center;}
+    </style>
+
+
+    <script type='text/javascript'>
+
+        function btn_onclick(){
+
+            var url = "Barcode.html";
+            var randomSession = "?AUTH=";
+
+            // Random session
+            randomSession = randomSession + Math.random();
+
+            // Concadinate both url
+            url = url + randomSession;
+            window.location.replace(url);
+        }
+
+    </script>
+</html>

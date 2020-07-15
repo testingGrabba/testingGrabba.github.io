@@ -6,8 +6,9 @@
         <div>
             <img src="grabba_logo.png" alt="Grabba">
         
-            <h1>Grabba Reader Demo</h1>
-            <h2>v1.21</h2>
+            <h1><a href="index.html">Grabba Reader Demo</a></h1>
+            <h2>v1.22</h2>
+            <p>Session ID<input type="text" id="session_id" name="sessionID" disabled></p><br><br>
 
             <label for="barcodeValue">Barcode Value:</label>
             <input type="text" id="barcodeValue" name="bvalue"><br><br>
@@ -15,7 +16,7 @@
             <label for="barcodeType">Barcode Type:</label>
             <input type="text" id="barcodeType" name="btype"><br><br><br><br>
 
-            <button onclick="window.location.href='reader://barcode?redirecturl=https://testinggrabba.github.io/Barcode.html'">
+            <button onclick="onScanBarcode()">
                 >>> Scan Barcode <<<
             </button>
         </div>
@@ -40,6 +41,12 @@
 
     <script type='text/javascript'>
 
+        function onScanBarcode(){
+            var keyValues = getAllParameters(location.search);
+            var url = 'reader://barcode?redirecturl=https://testinggrabba.github.io/Barcode.html' + "AUTH=" + keyValues["AUTH"];
+            window.location.href=url;
+        }
+
         function setBarcodeField()  {
             var qString = location.search;
             var keyValues = getAllParameters(qString);
@@ -47,8 +54,14 @@
             // Debug show query string
             console.log(keyValues);
 
+            var sessionId = "AUTH";
             var barcodeValue = "scanContent";
             var barcodeType = "barcodeType";
+
+            // Extract -- Auth Session ID
+            if (qString.indexOf(sessionId) != -1) {
+                document.getElementById("session_id").value = keyValues[sessionId];
+            }
 
             // Extract -- Barcode
             if (qString.indexOf(barcodeValue) != -1) {
