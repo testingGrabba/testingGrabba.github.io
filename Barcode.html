@@ -7,14 +7,14 @@
             <img src="grabba_logo.png" alt="Grabba">
         
             <h1><a href="index.html">Create new Session</a></h1>
-            <h2>v1.28</h2>
+            <h2>v1.29</h2>
             <p>Session ID<input type="text" id="session_id" name="sessionID" disabled></p><br><br>
-
+<!-- 
             <label for="barcodeValue">Barcode Value:</label>
             <input type="text" id="barcodeValue" name="bvalue"><br><br>
             
             <label for="barcodeType">Barcode Type:</label>
-            <input type="text" id="barcodeType" name="btype"><br><br><br><br>
+            <input type="text" id="barcodeType" name="btype"><br><br><br><br> -->
 
             <label for="mockServer">Mock Server Endpoint:</label>
             <input type="text" id="mockServer" name="btype" value="abc123123123"> 
@@ -61,23 +61,23 @@
             console.log(keyValues);
 
             var sessionId = "AUTH";
-            var barcodeValue = "scanContent";
-            var barcodeType = "barcodeType";
+            // var barcodeValue = "scanContent";
+            // var barcodeType = "barcodeType";
 
             // Extract -- Auth Session ID
             if (qString.indexOf(sessionId) != -1) {
                 document.getElementById("session_id").value = keyValues[sessionId];
             }
 
-            // Extract -- Barcode
-            if (qString.indexOf(barcodeValue) != -1) {
-                document.getElementById("barcodeValue").value = keyValues[barcodeValue];
-            }
+            // // Extract -- Barcode
+            // if (qString.indexOf(barcodeValue) != -1) {
+            //     document.getElementById("barcodeValue").value = keyValues[barcodeValue];
+            // }
 
-            // Extract -- BarcodeType
-            if (qString.indexOf(barcodeType) != -1) {
-                document.getElementById("barcodeType").value = keyValues[barcodeType];
-            }
+            // // Extract -- BarcodeType
+            // if (qString.indexOf(barcodeType) != -1) {
+            //     document.getElementById("barcodeType").value = keyValues[barcodeType];
+            // }
         }
 
         function getAllParameters(qString) {
