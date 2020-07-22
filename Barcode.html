@@ -7,7 +7,7 @@
             <img src="grabba_logo.png" alt="Grabba">
         
             <h1><a href="index.html">Create new Session</a></h1>
-            <h2>v1.25</h2>
+            <h2>v1.26</h2>
             <p>Session ID<input type="text" id="session_id" name="sessionID" disabled></p><br><br>
 
             <label for="barcodeValue">Barcode Value:</label>
@@ -43,7 +43,7 @@
 
         function onScanBarcode(){
             var keyValues = getAllParameters(location.search);
-            var url = 'reader://barcode?redirecturl=https://192.168.68.112:12345/' + "?AUTH=" + keyValues["AUTH"];
+            var url = 'reader://barcode?redirecturl=https://abc123123123.free.beeceptor.com' + "?AUTH=" + keyValues["AUTH"];
             window.location.href=url;
         }
 
