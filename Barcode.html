@@ -7,7 +7,7 @@
             <img src="grabba_logo.png" alt="Grabba">
         
             <h1><a href="index.html">Create new Session</a></h1>
-            <h2>v1.26</h2>
+            <h2>v1.27</h2>
             <p>Session ID<input type="text" id="session_id" name="sessionID" disabled></p><br><br>
 
             <label for="barcodeValue">Barcode Value:</label>
@@ -15,6 +15,12 @@
             
             <label for="barcodeType">Barcode Type:</label>
             <input type="text" id="barcodeType" name="btype"><br><br><br><br>
+
+            <label for="mockServer">Mock Server Endpoint:</label>
+            <input type="text" id="mockServer" name="btype" value="abc123123123"> 
+            <label>.free.<a href="https://beeceptor.com/">beeceptor.com</a></label>
+            <p></p>
+            <br><br><br><br>
 
             <button onclick="onScanBarcode()">
                 >>> Scan Barcode <<<
@@ -43,7 +49,7 @@
 
         function onScanBarcode(){
             var keyValues = getAllParameters(location.search);
-            var url = 'reader://barcode?redirecturl=https://abc123123123.free.beeceptor.com' + "?AUTH=" + keyValues["AUTH"];
+            var url = 'reader://barcode?redirecturl=https://' + document.getElementById("mockServer").value + "free.beeceptor.com" + "?AUTH=" + keyValues["AUTH"];
             window.location.href=url;
         }
 
